@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+@if (TempData["pic"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        Upload success
+    </div>
+  <div class="card" >
+      <div class="card-body" >
+          <img src=@TempData["pic"]>
+      </div>
+  </div>
+  
+            
+}
+<div class="container">
+    <h1>Upload file picture.</h1>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+        <div class="row">
+            <label class="btn btn-outline-info ">
+                Browse <input type="file" name="file" id="file" style="display: none;">
+            </label>
+            <p> &nbsp;</p> 
+            <button type="submit" class="btn btn-outline-success">Submit</button>
+        </div>
+
+    }
+
+</div>
